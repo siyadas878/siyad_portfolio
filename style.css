@@ -83,31 +83,37 @@ body {
 }
 
 .nav-menu {
-    position: static;
-    flex-direction: row;
-    background: none;
-    box-shadow: none;
+    display: none; /* Hide menu by default on mobile */
+    flex-direction: column;
+    align-items: center;      /* Center nav items horizontally */
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: rgba(10, 10, 10, 0.98);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    z-index: 1001;
+    text-align: center;       /* Center text inside nav items */
+    list-style: none;
     padding: 0;
-    width: auto;
-    left: auto;
-    top: auto;
-    display: flex;
-    align-items: center;
+    margin: 0;
 }
 
 .nav-menu.active {
-    left: 0;
+    display: flex; /* Show menu when hamburger is active */
 }
 
 .nav-item {
     margin: 1rem 0;
+    width: 100%;
+    text-align: center;       /* Center text for each nav item */
 }
 
 .nav-link {
     color: var(--text-secondary);
     text-decoration: none;
     font-weight: 500;
-    font-size: 1.1rem;
+    font-size: 1.0rem;
     transition: var(--transition);
     display: block;
     padding: 0.5rem;
@@ -136,7 +142,7 @@ body {
 }
 
 .hamburger {
-    display: block;
+    display: block; /* Show hamburger on mobile */
     cursor: pointer;
     z-index: 1001;
 }
@@ -427,47 +433,40 @@ section {
 
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 2rem;
     justify-items: center;
 }
 
 .skill-category {
-        min-height: 280px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-
-.skill-category {
+    width: 260px;
+    height: 340px;
+    min-width: 260px;
+    min-height: 340px;
+    max-width: 260px;
+    max-height: 340px;
     background: var(--bg-color);
-    padding: 2rem;
+    padding: 2rem 1rem;
     border-radius: 20px;
     border: 1px solid var(--border-color);
     transition: var(--transition);
-}
-
-.skill-category:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-dark);
-}
-
-.category-title {
-    font-size: 1.3rem;
-    font-weight: 600;
-    margin-bottom: 1.5rem;
-    color: var(--primary-color);
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+    overflow: hidden; /* Prevent overflow */
 }
 
 .skill-items {
     display: flex;
     flex-direction: column;
-    gap: 0.7rem;
+    gap: 0.3rem; /* Reduce gap */
     width: 100%;
     margin-top: 1rem;
-    padding-left: 1.2rem;
-    align-items: center;
+    padding-left: 0.8rem; /* Reduce padding */
+    align-items: flex-start;
+    box-sizing: border-box;
 }
 
 .skill-item {
@@ -483,107 +482,99 @@ section {
     min-height: unset;
     box-shadow: none;
     transition: none;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: 0;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: left;
+    margin: 0; /* Remove any default margin */
 }
 
-.skill-item i {
-    display: none;
-}
-
-/* Experience Section */
-.timeline {
-    position: relative;
-    max-width: 800px;
+/* Experience Section - New Card-based Design */
+.experience-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 900px;
     margin: 0 auto;
-    padding-left: 2rem;
 }
 
-.timeline::before {
-    content: "";
-    position: absolute;
-    left: 20px;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: var(--border-color);
-}
-
-.timeline-item {
-    position: relative;
-    margin-bottom: 3rem;
-    padding-left: 3rem;
-}
-
-.timeline-dot {
-    position: absolute;
-    left: -30px;
-    top: 20px;
-    width: 16px;
-    height: 16px;
-    background: var(--primary-color);
-    border-radius: 50%;
-    border: 4px solid var(--bg-color);
-    z-index: 1;
-}
-
-.timeline-content {
+.experience-card {
     background: var(--card-bg);
+    border-radius: 20px;
     padding: 2rem;
-    border-radius: 15px;
     border: 1px solid var(--border-color);
     transition: var(--transition);
+    position: relative;
+    overflow: hidden;
 }
 
-.timeline-content:hover {
+.experience-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--gradient-primary);
+}
+
+.experience-card:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-dark);
 }
 
-.timeline-date {
+.experience-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.experience-date {
     color: var(--primary-color);
     font-weight: 600;
-    margin-bottom: 0.5rem;
     font-size: 0.9rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    align-self: flex-start;
 }
 
-.timeline-title {
-    font-size: 1.2rem;
+.experience-title {
+    font-size: 1.3rem;
     font-weight: 600;
     margin-bottom: 0.25rem;
 }
 
-.timeline-company {
+.experience-company {
     color: var(--text-secondary);
-    font-size: 1rem;
-    margin-bottom: 0.25rem;
+    font-size: 1.1rem;
+    font-weight: 500;
 }
 
-.timeline-location {
+.experience-location {
     color: var(--text-muted);
-    margin-bottom: 1rem;
     font-size: 0.9rem;
 }
 
-.timeline-description {
+.experience-description {
     list-style: none;
+    padding: 0;
 }
 
-.timeline-description li {
+.experience-description li {
     position: relative;
     padding-left: 20px;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.8rem;
     color: var(--text-secondary);
-    font-size: 0.9rem;
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
-.timeline-description li::before {
+.experience-description li::before {
     content: "▸";
     position: absolute;
     left: 0;
     color: var(--primary-color);
+    font-weight: bold;
 }
 
 /* Projects Section */
@@ -697,6 +688,66 @@ section {
     border-radius: 20px;
     font-size: 0.8rem;
     font-weight: 500;
+}
+
+/* Services Section */
+.services {
+    background: var(--card-bg);
+    padding: 4rem 0;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    justify-items: center;
+}
+
+.service-card {
+    background: var(--bg-color);
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: var(--shadow-dark);
+    transition: var(--transition);
+    max-width: 340px;
+    width: 100%;
+    text-align: center;
+}
+
+.service-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.25);
+}
+
+.service-icon {
+    font-size: 2.8rem;
+    color: var(--primary-color);
+    margin-bottom: 1.2rem;
+}
+
+.service-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.7rem;
+    color: var(--primary-color);
+}
+
+.service-desc {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2.5rem;
+    }
 }
 
 /* Contact Section */
@@ -912,12 +963,14 @@ section {
     }
 
     .nav-menu {
+        display: flex !important; /* Always show menu on desktop/tablet */
         position: static;
         flex-direction: row;
         background: none;
         box-shadow: none;
-        padding: 0;
         width: auto;
+        top: auto;
+        left: auto;
     }
 
     .nav-item {
@@ -925,7 +978,7 @@ section {
     }
 
     .hamburger {
-        display: none;
+        display: none; /* Hide hamburger on desktop/tablet */
     }
 
     .hero-container {
@@ -968,7 +1021,7 @@ section {
     }
 
     .section-title {
-        font-size: 2.5rem;
+        font-size: 1.0rem;
     }
 
     .skills-grid {
@@ -1095,6 +1148,13 @@ section {
 
     .projects-grid {
         grid-template-columns: repeat(3, 1fr);
+    }
+
+    .experience-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem 3rem; /* row gap, column gap */
+        max-width: 1100px;
+        margin: 0 auto;
     }
 }
 
