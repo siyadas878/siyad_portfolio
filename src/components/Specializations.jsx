@@ -7,13 +7,13 @@ const skillsData = [
   {
     icon: <Smartphone size={32} />,
     title: "Core Mobile",
-    skills: ["Flutter", "Dart", "Kotlin (Android)", "Platform Channels"],
+    skills: ["Flutter", "Dart", "Kotlin (Android)", ".NET MAUI", "Platform Channels"],
     color: "rgba(0, 255, 204, 0.4)"
   },
   {
     icon: <Server size={32} />,
     title: "Backend & Cloud",
-    skills: ["Node.js", "Python (FastAPI)", "AWS (EC2, S3)", "Firebase", "Supabase"],
+    skills: ["Node.js", "ASP.NET", "Razor", "Python (FastAPI)", "AWS (EC2, S3)", "Firebase"],
     color: "rgba(153, 51, 255, 0.4)"
   },
   {

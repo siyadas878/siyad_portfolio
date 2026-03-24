@@ -2,39 +2,47 @@
 import { motion } from "framer-motion";
 import styles from "./Projects.module.css";
 import Image from "next/image";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Github, Apple, Smartphone } from "lucide-react";
 
 const projectsData = [
   {
     title: "ByteFlow",
     description: "Architected a domain-agnostic Flutter Web & Mobile framework, reducing client development costs by 35% with modular architecture.",
-    image: "/images/byteflow.png",
+    image: "/images/byteflow_image.png",
     tags: ["Flutter", "Dart", "WebSockets", "OAuth2"],
-    link: "#",
+    links: {
+      web: "https://byteflow.bot/"
+    },
     github: "#"
   },
   {
-    title: "Course Connect",
+    title: "Courseway",
     description: "Streamlined the study abroad process, from course discovery to applications with a unified frontend for web, Android, and iOS.",
-    image: "/images/courseconnect.png",
+    image: "/images/courseconnect_image.png",
     tags: ["Flutter", "Responsive UI", "Client App"],
-    link: "#",
+    links: {
+      ios: "https://apps.apple.com/us/app/courseway/id6757051936",
+      android: "https://play.google.com/store/apps/details?id=com.santamonica.courseway"
+    },
     github: "#"
   },
   {
     title: "MAOWL",
     description: "Home automation dashboard for controlling smart devices, monitoring sensor data and managing household routines.",
-    image: "/images/maowl.png",
+    image: "/images/maowl_image.png",
     tags: ["Flutter", "Supabase", "FastAPI", "Raspberry Pi"],
-    link: "#",
+    links: {},
     github: "#"
   },
   {
     title: "Bytes",
     description: "Food ordering app featuring real-time tracking and secure payments. Includes comprehensive restaurant management modules.",
-    image: "/images/bytes.png",
+    image: "/images/bytes_image.png",
     tags: ["Flutter", "Firebase", "Razorpay", "Real-time"],
-    link: "#",
+    links: {
+      ios: "https://apps.apple.com/ae/app/bytes-online-delivery/id1628595159",
+      android: "https://play.google.com/store/apps/details?id=com.tapps.delivery"
+    },
     github: "#"
   }
 ];
@@ -73,8 +81,18 @@ export default function Projects() {
               />
               <div className={styles.overlay}>
                 <div className={styles.links}>
-                  <a href={project.github} className={styles.iconBtn}><Github size={20} /></a>
-                  <a href={project.link} className={styles.iconBtn}><ExternalLink size={20} /></a>
+                  {project.github && project.github !== "#" && (
+                    <a href={project.github} className={styles.iconBtn} target="_blank" rel="noopener noreferrer" title="View Source"><Github size={20} /></a>
+                  )}
+                  {project.links?.web && (
+                    <a href={project.links.web} className={styles.iconBtn} target="_blank" rel="noopener noreferrer" title="Visit Website"><ExternalLink size={20} /></a>
+                  )}
+                  {project.links?.ios && (
+                    <a href={project.links.ios} className={styles.iconBtn} target="_blank" rel="noopener noreferrer" title="App Store"><Apple size={20} /></a>
+                  )}
+                  {project.links?.android && (
+                    <a href={project.links.android} className={styles.iconBtn} target="_blank" rel="noopener noreferrer" title="Play Store"><Smartphone size={20} /></a>
+                  )}
                 </div>
               </div>
             </div>
