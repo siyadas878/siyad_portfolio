@@ -42,7 +42,7 @@ const projectsData = [
 export default function Projects() {
   return (
     <section id="projects" className={styles.section}>
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
@@ -64,10 +64,10 @@ export default function Projects() {
             className={`glass-card ${styles.card}`}
           >
             <div className={styles.imageWrapper}>
-              <Image 
-                src={project.image} 
-                alt={project.title} 
-                fill 
+              <Image
+                src={project.image}
+                alt={project.title}
+                fill
                 className={styles.image}
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
