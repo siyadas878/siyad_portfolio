@@ -8,8 +8,8 @@ const outfit = Outfit({
 });
 
 export const metadata = {
-  title: "Mohammed Siyadh A S | Senior Flutter Developer",
-  description: "Portfolio of Mohammed Siyadh A S, a Senior Flutter Developer with 4+ years of experience architecting high-performance cross-platform applications.",
+  title: "Mohammed Siyadh A S | Mobile Application Developer & Solution Consultant",
+  description: "Portfolio of Mohammed Siyadh A S. Results-oriented Full Stack Mobile Application Developer with 4+ years of experience building high-performance applications across Flutter, Android, iOS, and React Native.",
 };
 
 export default function RootLayout({ children }) {

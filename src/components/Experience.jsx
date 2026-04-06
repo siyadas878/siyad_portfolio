@@ -5,7 +5,7 @@ import { Briefcase, Calendar, MapPin } from "lucide-react";
 
 const experienceData = [
   {
-    role: "Flutter Developer",
+    role: "Mobile Application Developer & Solution Consultant",
     company: "DifferentByte Technologies",
     duration: "08/2024 – Present",
     location: "Kochi, Kerala",
@@ -44,7 +44,7 @@ const experienceData = [
 export default function Experience() {
   return (
     <section id="experience" className={styles.section}>
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}

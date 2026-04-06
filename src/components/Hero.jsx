@@ -32,7 +32,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className={styles.subtitle}
         >
-          Senior Flutter Developer
+          Mobile Application Developer & Solution Consultant
         </motion.h2>
 
         <motion.p 
@@ -41,7 +41,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.6 }}
           className={styles.description}
         >
-          Results-oriented Developer with 4+ years of experience architecting high-performance cross-platform applications. Specialized in building scalable frameworks, BLoC, WebSockets, and Generative AI integration.
+          Results-oriented Full Stack Mobile Application Developer with 4+ years of experience building high-performance applications across Flutter, Android, iOS, and React Native. Experienced as a Solution Consultant, delivering complete end-to-end development solutions including backend systems, cloud integration, and AI-powered features. Proficient in advanced state management, real-time communication, and scalable architecture, with a strong focus on Clean Architecture, performance optimization, and enterprise-grade solutions.
         </motion.p>
 
         <motion.div 
