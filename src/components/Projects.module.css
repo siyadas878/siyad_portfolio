@@ -55,44 +55,32 @@
   transform: scale(1.05);
 }
 
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(4px);
-  opacity: 0;
-  transition: opacity 0.3s ease;
+.cardLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  margin-top: 1rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.cardLink {
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+  text-decoration: none;
 }
 
-.card:hover .overlay {
-  opacity: 1;
+.cardLink:hover {
+  color: var(--accent-primary);
+  transform: translateY(-1px);
 }
 
-.links {
-  display: flex;
-  gap: 1rem;
-}
-
-.iconBtn {
-  background: #fff;
-  color: #000;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.2s ease;
-}
-
-.iconBtn:hover {
-  transform: scale(1.1);
+.cardLink svg {
+  color: var(--accent-primary);
 }
 
 .content {

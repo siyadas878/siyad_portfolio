@@ -22,7 +22,8 @@ const projectsData = [
     tags: ["Flutter", "Responsive UI", "Client App"],
     links: {
       ios: "https://apps.apple.com/us/app/courseway/id6757051936",
-      android: "https://play.google.com/store/apps/details?id=com.santamonica.courseway"
+      android: "https://play.google.com/store/apps/details?id=com.santamonica.courseway",
+      web: "https://www.courseway.ai/"
     },
     github: "#"
   },
@@ -42,6 +43,27 @@ const projectsData = [
     links: {
       ios: "https://apps.apple.com/ae/app/bytes-online-delivery/id1628595159",
       android: "https://play.google.com/store/apps/details?id=com.tapps.delivery"
+    },
+    github: "#"
+  },
+  {
+    title: "Centre Square Mall",
+    description: "A comprehensive mall loyalty and experience app designed to enhance shopping with rewards, directories, and real-time updates.",
+    image: "/images/centre square.png",
+    tags: ["Flutter", "Loyalty System", "Kochi"],
+    links: {
+      ios: "https://apps.apple.com/us/app/centre-square-mall/id6575363880",
+      android: "https://play.google.com/store/apps/details?id=com.centresquare.loyalty"
+    },
+    github: "#"
+  },
+  {
+    title: "The Volt",
+    description: "State-of-the-art radar detection app enhancing driver safety with real-time alerts for speed cameras, EV charging stations, and road hazards.",
+    image: "/images/volt.png",
+    tags: ["Flutter", "Google Maps", "Real-time Alerts"],
+    links: {
+      android: "https://play.google.com/store/apps/details?id=com.volt.map"
     },
     github: "#"
   }
@@ -79,22 +101,6 @@ export default function Projects() {
                 className={styles.image}
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
-              <div className={styles.overlay}>
-                <div className={styles.links}>
-                  {project.github && project.github !== "#" && (
-                    <a href={project.github} className={styles.iconBtn} target="_blank" rel="noopener noreferrer" title="View Source"><Github size={20} /></a>
-                  )}
-                  {project.links?.web && (
-                    <a href={project.links.web} className={styles.iconBtn} target="_blank" rel="noopener noreferrer" title="Visit Website"><ExternalLink size={20} /></a>
-                  )}
-                  {project.links?.ios && (
-                    <a href={project.links.ios} className={styles.iconBtn} target="_blank" rel="noopener noreferrer" title="App Store"><Apple size={20} /></a>
-                  )}
-                  {project.links?.android && (
-                    <a href={project.links.android} className={styles.iconBtn} target="_blank" rel="noopener noreferrer" title="Play Store"><Smartphone size={20} /></a>
-                  )}
-                </div>
-              </div>
             </div>
             <div className={styles.content}>
               <h3 className={styles.cardTitle}>{project.title}</h3>
@@ -103,6 +109,33 @@ export default function Projects() {
                 {project.tags.map((tag, tIndex) => (
                   <span key={tIndex} className={styles.tag}>{tag}</span>
                 ))}
+              </div>
+
+              <div className={styles.cardLinks}>
+                {project.github && project.github !== "#" && (
+                  <a href={project.github} className={styles.cardLink} target="_blank" rel="noopener noreferrer">
+                    <Github size={18} />
+                    <span>GitHub</span>
+                  </a>
+                )}
+                {project.links?.web && (
+                  <a href={project.links.web} className={styles.cardLink} target="_blank" rel="noopener noreferrer">
+                    <ExternalLink size={18} />
+                    <span>Website</span>
+                  </a>
+                )}
+                {project.links?.ios && (
+                  <a href={project.links.ios} className={styles.cardLink} target="_blank" rel="noopener noreferrer">
+                    <Apple size={18} />
+                    <span>App Store</span>
+                  </a>
+                )}
+                {project.links?.android && (
+                  <a href={project.links.android} className={styles.cardLink} target="_blank" rel="noopener noreferrer">
+                    <Smartphone size={18} />
+                    <span>Play Store</span>
+                  </a>
+                )}
               </div>
             </div>
           </motion.div>
